@@ -9,7 +9,7 @@ Inclui:
 
 Até agora:
 - [ ] Primeira metade Prog1 
-- [ ] Primeira metade Prog1 
+- [ ] Segunda metade Prog1 
 - [x] Primeira metade Prog2 
 - [ ] Segunda metade Prog2 
 
