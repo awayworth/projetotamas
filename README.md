@@ -15,7 +15,7 @@ Até agora:
 
 ---
 
-Quer contribuir? [Crie um fork!]("https://github.com/awayworth/projetotamas/fork")
+Quer contribuir? [Crie um fork!](https://github.com/awayworth/projetotamas/fork)
 
 
 ***Se o professor não tem a intenção de nos ensinar da maneira certa, não temos a intenção de aprender da maneira errada.***
