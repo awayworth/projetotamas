@@ -1,0 +1,5 @@
+Título do vídeo1: What is Object Oriented Programming (OOP) in Python?
+Autor do vídeo1: Austin Cepalia
+
+Título do vídeo2: Classes and OOP in Python
+Autor do vídeo2: Austin Cepalia
