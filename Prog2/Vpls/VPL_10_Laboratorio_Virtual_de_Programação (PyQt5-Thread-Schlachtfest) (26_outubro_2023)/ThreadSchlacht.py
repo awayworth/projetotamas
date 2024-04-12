@@ -2,8 +2,6 @@ import random
 import threading
 import time
 
-##################################################
-
 class ThreadSchlacht:
     __Total=None
     __LEd=None
@@ -25,4 +23,4 @@ class ThreadSchlacht:
             time.sleep(random.randint(1,7))
             
             self.__Total += -1
-##################################################
+

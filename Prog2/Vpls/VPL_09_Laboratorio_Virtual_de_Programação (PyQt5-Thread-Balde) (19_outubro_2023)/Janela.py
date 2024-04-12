@@ -4,36 +4,29 @@ from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 from ThreadBalde import ThreadBalde
 
-##################################################
-
-class Janela( QWidget ): ## (Complete o código que declara a classe Janela)
+class Janela( QWidget ):
     __LEd1 = None
     __PBar=None
     __Bt1 = None
     __MeuBalde=None
 
-    ## Questão 08:  (Criar o construtor da classe Janela)
-    def __init__(self, Str="Janela", x1=400, y1=200, dx=640, dy=480, cor="orange"):  # Questão 08
+    def __init__(self, Str="Janela", x1=400, y1=200, dx=640, dy=480, cor="orange"):
         super().__init__()
         
-
         self.setWindowTitle(Str)
         self.setGeometry(x1, y1, dx, dy)
 
-        # Set window background color
         self.setAutoFillBackground(True)
         p = self.palette()
         p.setColor(self.backgroundRole(), QColor(cor))
         self.setPalette(p)
 
-        
         self.inicialize()
 
     def closeEvent(self, event):
         self.__MeuBalde.parar()
         self.destroy()
         sys.exit(0)
-        
         
     def action_executar(self):
         if not self.__MeuBalde.isRunning():
@@ -65,4 +58,3 @@ class Janela( QWidget ): ## (Complete o código que declara a classe Janela)
         self.setLayout(Grid)
         self.show()
 
-##################################################

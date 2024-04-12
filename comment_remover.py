@@ -26,4 +26,6 @@ def format_files(directory):
 
 # Substitua 'caminho_para_sua_pasta' pelo caminho da pasta que você deseja limpar
 format_files('Prog2')
+format_files('Prog3')
+format_files('Prog1')
 input()

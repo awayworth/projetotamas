@@ -1,7 +1,8 @@
 import sys
 from PyQt5.QtWidgets import *
-from Janela import Janela
+from IMC_Controller import Controller
 
 App=QApplication(sys.argv)
-Jan1=Janela("Venda de Chopp")
+Cntr=Controller()
 App.exec_()
+

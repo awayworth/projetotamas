@@ -7,11 +7,10 @@ class ThreadClock:
     __LEd = None
     __Thr = None
 
-    def __init__(self, LEd):  # Questão 01
+    def __init__(self, LEd):
         self.__LEd = LEd
        
-
-    def iniciar(self, Total_a):  # Questão 02
+    def iniciar(self, Total_a):
         try:
             self.__Total = Total_a
             self.__Thr = threading.Thread(target=self.run)
@@ -19,7 +18,7 @@ class ThreadClock:
         except Exception as ex:
             print("Error: unable to start thread: %s\n" % (ex))
         
-    def parar(self):  # Questão 03
+    def parar(self):
         try:
             
             self.__Total = 0;
@@ -27,10 +26,10 @@ class ThreadClock:
         except:
             print("Error: unable to start thread: %s\n" % (ex))
             
-    def isRunning(self):  # Questão 04
+    def isRunning(self):
         return self.__Thr.is_alive() if self.__Thr else False
 
-    def run(self):  # Questão 05
+    def run(self):
         count = 0
         while count < self.__Total:
             count += 1
