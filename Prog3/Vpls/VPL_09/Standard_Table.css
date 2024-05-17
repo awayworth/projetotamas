@@ -1,0 +1,19 @@
+.StandardTable {
+   background: #FFFFFF;
+   border: 2px solid black;
+   border-collapse: collapse;
+}
+
+.LightGrayCell {
+   background-color: #E0E0E0;
+   color: #000000;
+   border: 2px solid black;
+   padding: 4px;
+}
+
+.WhiteCell {
+   background-color: #FFFFFF;
+   color: #000000;
+   border: 2px solid black;
+   padding: 4px;
+}

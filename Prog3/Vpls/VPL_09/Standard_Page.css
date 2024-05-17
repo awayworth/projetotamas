@@ -1,0 +1,72 @@
+
+body.PageBody {
+	margin-left: 4px;
+	margin-top: 4px;
+	margin-right: 4px;
+	margin-bottom: 4px;
+	background-color: #FFFFFF;
+}
+
+.BigTitleFont {
+	font-size: 22px;
+	font-weight: bold;
+	font-style: italic;
+	font-family: Verdana, Arial, Times, serif, "Times New Roman";
+	color: #000000;
+}
+
+.BoldTitleFont {
+	font-size: 18px;
+    font-weight: bold;
+	font-family: Verdana, Arial, Times, serif, "Times New Roman";
+	color: #000000;
+}
+
+.NormalTitleFont {
+	font-size: 18px;
+    font-weight: Normal;
+	font-family: Verdana, Arial, Times, serif, "Times New Roman";
+	color: #000000;
+}
+
+.NormalFont {
+	font-size: 16px;
+	font-weight: normal;
+	font-family: "Times New Roman", Times, serif;
+	color: #000000;
+}
+
+.NormalFontGray {
+	font-size: 16px;
+	font-weight: normal;
+	font-family: "Times New Roman", Times, serif;
+	color: #808080;
+}
+
+.NormalFontRed {
+	font-size: 16px;
+	font-weight: normal;
+	font-family: "Times New Roman", Times, serif;
+	color: #F00000;
+}
+
+.BoldFont {
+	font-size: 16px;
+	font-weight: bold;
+	font-family: "Times New Roman", Times, serif;
+	color: #000000;
+}
+
+.SmallNormalFont {
+	font-size: 14px;
+	font-weight: normal;
+	font-family: "Times New Roman", Times, serif;
+	color: #000000;
+}
+
+.SmallBoldFont {
+	font-size: 14px;
+	font-weight: bold;
+	font-family: "Times New Roman", Times, serif;
+	color: #000000;
+}
