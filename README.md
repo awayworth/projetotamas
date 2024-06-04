@@ -5,14 +5,12 @@
 Inclui:
 - VPLs
 - Questionários
-- E materiais auxiliaries
 
 Até agora:
-- [x] Primeira metade Prog1 
-- [ ] Segunda metade Prog1 
-- [x] Primeira metade Prog2 
-- [ ] Segunda metade Prog2 
-
+- [x] Prog1 
+- [x] Prog2
+- [x] Prog3
+- [x] IA
 ---
 
 Quer contribuir? [Crie um fork!](https://github.com/awayworth/projetotamas/fork)
