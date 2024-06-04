@@ -1,0 +1,65 @@
+:- dynamic
+    futebol/5,
+    maior/2.
+
+%% *****************************************************************************
+
+load_futebol(FileName) :-
+    exists_file(FileName),
+    write('Consultando [Futebol.bas.txt]...'),
+    consult(FileName),
+    write('Ok.'), nl,
+    write('Equipes de futebol:'),n1,
+    print_futebol,!.
+
+%% *****************************************************************************
+
+print_futebol :-
+    futebol(Nome, Titulos, Estado, Cidade, Cores),
+    write('    Nome: '), write(Nome),
+    write('    Títulos: '), write(Titulos),
+    write('    Estado: '), write(Estado),
+    write('    Cidade: '), write(Cidade),
+    write('    Cores: '), write(Cores), nl,
+    fail.
+print_futebol.
+
+%% *****************************************************************************
+
+inicia_busca :-
+    write('Busca iniciada...'), nl,
+    resultado_busca,
+    write('Fim da busca...'), nl.
+
+%% *****************************************************************************
+
+resultado_busca :-
+    futebol(Nome, Titulos, _, _, _),
+    maior(_, Max),
+    Max<Titulos,
+    retract(maior(_,_)),
+    assert(maior(Nome, Titulos)),
+    fail.
+resultado_busca :-
+    maior(Nome, Titulos),
+    write('Resultado da busca:'), nl,
+    write('Equipe com maior número de títulos: '),
+    write(Nome), nl,
+    write('Número de títulos: '),
+    write(Titulos), nl,!.
+
+%% *****************************************************************************
+
+goal :-
+    working_directory(Path, Path),
+    string_to_atom("./Futebol.bas.txt", Name),
+    atom_concat(Path, Name, FileName),
+    write('Name: '),
+    write(Name), nl,
+    load_futebol(FileName),
+    print_futebol,
+    inicia_busca.
+
+%% *****************************************************************************
+
+goal/0

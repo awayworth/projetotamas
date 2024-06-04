@@ -1,0 +1,87 @@
+;; *****************************************************************************
+
+(defglobal ?*filename* = "./Futebol.bas.txt")
+
+(deftemplate futebol
+    ;; Questão 01: Definir a base de conhecimentos
+    (slot nome)
+    (slot titulos)
+    (slot estado)
+    (slot cidade)
+    (slot cores)
+)
+
+;; *****************************************************************************
+
+(deffunction pergunta (?perg)
+    ;; Questão 02: Criar a função para leitura do teclado
+    (printout t crlf ?perg)
+    (bind ?resp (read))
+    (return ?resp)
+)
+
+;; *****************************************************************************
+
+(defrule load_futebol
+    ;; Questão 03: Criar a regra que carrega a base de conhecimentos
+    (not (futebol (nome ?))) ;;;;;verifica se nao ha nenhum fato carregado
+    =>
+    (printout t "Consultando o arquivo [" ?*filename* "]..." crlf)
+    (load-facts ?*filename*)
+
+    ;;;;;avisa para rodar a regra seguinte depois de carregar os fatos
+    (assert (fatos_carregados))
+)
+
+;; *****************************************************************************
+
+(defrule print_futebol
+    ;; Questão 04: Criar a regra que imprime todas as equipes de futebol
+    ;;             Use quatro espaços para separar os atributos de cada equipe
+    (fatos_carregados) ;;;;;verifica se os fatos foram carregados
+    (futebol (nome ?nm) (titulos ?tt) (estado ?es) (cidade ?cd) (cores ?cr))
+    =>
+    (printout t "nome=" ?nm "    títulos=" ?tt "    estado=" ?es "    cidade=" ?cd "    cores=" ?cr crlf)
+    ;;;;;(facts)    
+)
+
+;; *****************************************************************************
+
+(defrule inicia_busca
+    ;; Questão 05: Criar a regra que inicia a busca na base de conhecimentos
+    (fatos_carregados) ;;;;;verifica se os fatos foram carregados
+    =>
+    (assert (maior "nenhuma" 0))
+)
+
+;; *****************************************************************************
+
+(defrule resultado_busca
+    ;; Questão 06: Criar a regra que identifica a equipe com mais títulos brasileiros
+    (fatos_carregados) ;;;;;verifica se os fatos foram carregados
+    ?pto <- (maior ?eqp ?num)
+    (futebol (nome ?nm) (titulos ?tt) (estado ?es) (cidade ?cd) (cores ?cr))
+    =>
+    (if (< ?num ?tt) then
+        (retract ?pto)
+        (assert (maior ?nm ?tt))
+    )
+)
+
+;; *****************************************************************************
+
+(defrule fim_busca
+    ;; Questão 07: Criar a regra que imprime a equipe com mais títulos brasileiros
+    (fatos_carregados) ;;;;;verifica se os fatos foram carregados
+    ?pto <- (maior ?eqp ?num)
+    =>
+    ;;;;;retira o fato da memoria
+    (retract ?pto)
+    ;;;;;obtem se a resposta antes de terminar a regra para disparar a regra seguinte
+    ;;;;;caso digitado fim a regra seguinte nao é disparada
+    (printout t "Resultado da busca:" crlf)
+    (printout t "Equipe com maior número de títulos=" ?eqp crlf)
+    (printout t "Número de títulos=" ?num crlf)
+)
+
+;; *****************************************************************************
