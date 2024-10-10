@@ -1,65 +1,78 @@
+%% *****************************************************************************
+
 :- dynamic
-    futebol/5,
-    maior/2.
+    futebol / 5,
+    maior / 2.
+    %% Questão 01: definir a base de conhecimentos
+    %% Questão 02: definir o fato maior equipe
 
 %% *****************************************************************************
 
-load_futebol(FileName) :-
+load_futebol(FileName):-
     exists_file(FileName),
     write('Consultando [Futebol.bas.txt]...'),
     consult(FileName),
     write('Ok.'), nl,
-    write('Equipes de futebol:'),n1,
+    write('Equipes de futebol: '), nl,
     print_futebol,!.
+    %% Questão 03: Criar a regra que carrega a base de conhecimentos
 
 %% *****************************************************************************
 
-print_futebol :-
+print_futebol:-
+    %% Questão 04: Criar a regra que imprime todas as equipes de futebol
+    %%             Use quatro espaços para separar os atributos de cada equipe
     futebol(Nome, Titulos, Estado, Cidade, Cores),
-    write('    Nome: '), write(Nome),
-    write('    Títulos: '), write(Titulos),
-    write('    Estado: '), write(Estado),
-    write('    Cidade: '), write(Cidade),
-    write('    Cores: '), write(Cores), nl,
+    write('Nome: '),
+    write(Nome),
+    write('    Títulos: '),
+    write(Titulos),
+    write('    Estado: '),
+    write(Estado),
+    write('    Cidade: '),
+    write(Cidade),
+    write('    Cores: '),
+    write(Cores),nl,
     fail.
 print_futebol.
 
 %% *****************************************************************************
 
-inicia_busca :-
-    write('Busca iniciada...'), nl,
-    resultado_busca,
-    write('Fim da busca...'), nl.
+inicia_busca:-
+    %% Questão 05: Criar a regra que inicia a busca na base de conhecimentos
+    assert(maior([nada],0)),
+    resultado_busca,!.
 
 %% *****************************************************************************
 
-resultado_busca :-
+resultado_busca:-
+    %% Questão 06: Criar a regra que identifica a equipe com mais títulos brasileiros
     futebol(Nome, Titulos, _, _, _),
     maior(_, Max),
     Max<Titulos,
     retract(maior(_,_)),
     assert(maior(Nome, Titulos)),
     fail.
-resultado_busca :-
+
+resultado_busca:-
+    %% Questão 07: Criar a regra que imprime a equipe com mais títulos brasileiros
     maior(Nome, Titulos),
-    write('Resultado da busca:'), nl,
+    write('Resultado da busca:'),nl,
     write('Equipe com maior número de títulos: '),
-    write(Nome), nl,
+    write(Nome),nl,
     write('Número de títulos: '),
-    write(Titulos), nl,!.
+    write(Titulos).
 
 %% *****************************************************************************
 
-goal :-
+goal:-
+    %% Questão 08: Criar a regra principal do programa
     working_directory(Path, Path),
-    string_to_atom("./Futebol.bas.txt", Name),
+    string_to_atom("./Futebol.bas.txt",Name) ,
     atom_concat(Path, Name, FileName),
     write('Name: '),
-    write(Name), nl,
+    write(Name),nl,
     load_futebol(FileName),
-    print_futebol,
     inicia_busca.
 
 %% *****************************************************************************
-
-goal/0
