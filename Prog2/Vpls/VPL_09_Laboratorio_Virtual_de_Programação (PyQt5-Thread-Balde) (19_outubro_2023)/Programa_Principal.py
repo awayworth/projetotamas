@@ -3,5 +3,5 @@ from PyQt5.QtWidgets import *
 from Janela import Janela
 
 App=QApplication(sys.argv)
-Jan1=Janela("Balde")
+Jan1=Janela("Salvar arquivo")
 App.exec_()
